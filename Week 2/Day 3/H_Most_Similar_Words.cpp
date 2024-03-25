@@ -50,12 +50,22 @@ template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i
 
 void solve(){
 
-    string a, b;    cin >> a >> b;
-    int cnt = 0;
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i])    cnt++;
+    int n, m;   cin >> n >> m;
+    int mn = INT_MAX;
+    vector<string> v(n);
+    for(int i = 0; i < n; i++)  cin >> v[i];
+
+    for(int i = 0; i < n; i++){
+        for(int j = i + 1; j < n; j++){
+            int cnt = 0;
+            for(int k = 0; k < m; k++){
+                cnt += abs(v[j][k] - v[i][k]);
+            }
+            mn = min(mn, cnt);
+        }
     }
-    cout << cnt;
+
+    cout << mn << nline;
     
 }
 
@@ -66,7 +76,7 @@ signed main() {
 
     fastio();
     int t = 1;   	
-    // cin >> t;
+    cin >> t;
     while(t--){     solve(); }
     return 0;
 }

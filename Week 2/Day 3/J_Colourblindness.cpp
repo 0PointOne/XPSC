@@ -50,12 +50,17 @@ template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i
 
 void solve(){
 
+    int n;  cin >> n;
     string a, b;    cin >> a >> b;
-    int cnt = 0;
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i])    cnt++;
+    for(int i = 0; i < n; i++){
+        bool t = !((a[i] == 'B' || a[i] == 'G') && (b[i] == 'B' || b[i] == 'G'))  && (a[i] != b[i]);
+
+        if(t){
+            cout << "NO" << nline;
+            return;
+        }
     }
-    cout << cnt;
+    cout << "YES" << nline;
     
 }
 
@@ -66,7 +71,7 @@ signed main() {
 
     fastio();
     int t = 1;   	
-    // cin >> t;
+    cin >> t;
     while(t--){     solve(); }
     return 0;
 }

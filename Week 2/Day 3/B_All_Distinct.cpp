@@ -50,13 +50,17 @@ template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i
 
 void solve(){
 
-    string a, b;    cin >> a >> b;
+    int n;  cin >> n;
+    vector<int> v(n);
     int cnt = 0;
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i])    cnt++;
+
+    for(int i = 0; i < n; i++){
+        int num;    cin >> num;
+        if(find(v.begin(), v.end(), num) != v.end())    cnt++;
+        v.push_back(num);
     }
-    cout << cnt;
-    
+
+    cout << (cnt & 1   ?    n - cnt - 1  :  n - cnt)  << nline;
 }
 
 signed main() {
@@ -66,7 +70,7 @@ signed main() {
 
     fastio();
     int t = 1;   	
-    // cin >> t;
+    cin >> t;
     while(t--){     solve(); }
     return 0;
 }
