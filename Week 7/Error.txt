@@ -1,0 +1,17 @@
+sb 4
+v [ 2 ]
+calu 9
+sb 8
+sb 4
+v [ 3 2 ]
+calu 8
+calu 4
+sb 512
+sb 32
+sb 16
+sb 4
+v [ 9 5 4 2 ]
+calu 119218190
+calu 762815541
+calu 121550625
+calu 11025
