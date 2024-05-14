@@ -48,16 +48,29 @@ template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i
 
 void solve(){
 
-    int l, r;   cin >> l >> r;
+    int n;  cin >> n;
+    map<int, int> cnt;
+    for(int j = 0; j < n; j++){
+        int num;    cin >> num;
+        for(int i = 2; i * i <= num; i++){
+            while(num % i == 0){
+                cnt[i]++;
+                num /= i;
+            }
+        }
+        if(num > 1){
+            cnt[num]++;
+        }
+    }  
 
-    vector<pair<int, int>> pr;
-    for(int i = l; i <= r; i += 2){
-        pr.pb({i, i + 1});
+    debug(cnt)
+    for(auto it: cnt){
+        if(it.ss % n != 0){
+            cout << "NO" << nline;
+            return;
+        }
     }
     cout << "YES" << nline;
-    for(int i = 0; i < sz(pr); i++){
-        cout << pr[i].ff << " " << pr[i].ss << "\n";
-    }
     
 }
 
@@ -68,7 +81,7 @@ signed main() {
 
     fastio();
     int t = 1;   	
-    // cin >> t;
+    cin >> t;
     while(t--){     solve(); }
     return 0;
 }

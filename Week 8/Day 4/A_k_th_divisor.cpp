@@ -48,17 +48,18 @@ template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i
 
 void solve(){
 
-    int l, r;   cin >> l >> r;
-
-    vector<pair<int, int>> pr;
-    for(int i = l; i <= r; i += 2){
-        pr.pb({i, i + 1});
+    int n, k;   cin >> n >> k;
+    vector<int> di;
+    for(int i = 1; i*i <= n; i++){
+        if(n % i == 0){
+            di.push_back(i);
+            if(n / i != i){
+                di.pb(n/i);
+            }
+        }
     }
-    cout << "YES" << nline;
-    for(int i = 0; i < sz(pr); i++){
-        cout << pr[i].ff << " " << pr[i].ss << "\n";
-    }
-    
+    sort(all(di));
+    cout << (sz(di) < k   ?   -1  :    di[k-1]) << nline;
 }
 
 signed main() {
