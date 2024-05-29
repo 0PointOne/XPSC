@@ -48,41 +48,10 @@ template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i
 
 void solve(){
 
-    int n, m;   cin >> n >> m;
-    vector<int> a(n),  b(m);
+    int n;  cin >> n;
+    vector<vector<bool> > vis(n, vector<bool>(n, false));
+    int t;  cin >> t;
 
-    for(int i = 0; i < n; i++)  cin >> a[i];
-    for(int i = 0; i < m; i++)  cin >> b[i];
-
-    sort(all(a));
-    sort(all(b));
-
-    vector<int> v;
-    for(int i = 0; i < n; i++){
-        v.pb(a[i]);
-    }
-    for(int i = 0; i < m; i++){
-        v.pb(b[i]);
-    }
-
-    sort(all(v));
-
-    int j = 0, cnt = 0, ans = 0;
-    for(int i = 0; i < n + m; i++){
-        if(j == n){
-            cout << "No" << "\n";
-            return;
-        }
-        if(a[j] == v[i]){ cnt++, j++;
-            if(cnt == 2){
-                cout << "Yes" << "\n";
-                return;
-            }
-        }
-        else cnt = 0;
-    }
-    cout << "No";
-    // cout << (ans >= 2   ?   "Yes"   :    "No") << "\n";
     
 }
 

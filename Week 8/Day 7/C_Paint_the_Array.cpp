@@ -27,7 +27,6 @@ typedef long double lld;
 #endif
 
 void _print(int t) {cerr << t;}
-void _print(bool t) {cerr << t;}
 void _print(string t) {cerr << t;}
 void _print(char t) {cerr << t;}
 void _print(lld t) {cerr << t;}
@@ -48,23 +47,33 @@ template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i
 
 void solve(){
 
-    int n;  cin >> n; 
+    int n;  cin >> n;
     vector<int> v(n);
     for(int i = 0; i < n; i++)  cin >> v[i];
 
-    int mx = *max_element(all(v));
-    
-    int z = 0, s = 0;
+    int gcd_e = 0, gcd_o = 0;
+    for(int i = 0; i < n; i += 2) gcd_e = __gcd(gcd_e, v[i]);
+    for(int i = 1; i < n; i += 2) gcd_o = __gcd(gcd_o, v[i]);
 
-    for(int i = 0; i < n; i++){
-        z = __gcd(z, mx - v[i]);
-        s += (mx - v[i]);
+    bool ist = true;
+    for(int i = 0; i < n; i += 2){
+        if(v[i] % gcd_o == 0){
+            ist = false;
+            break;
+        }
+    }
+
+    bool ist1 = true;
+    for(int i = 1; i < n; i += 2){
+        if(v[i] % gcd_e == 0){
+            ist1 = false;
+            break;
+        }
     }
     
-    int y = 0;
-    if(z != 0) y = s / z;
-
-    cout << y << " " << z << "\n";
+    if(ist) cout << gcd_o << nline;
+    else if(ist1) cout << gcd_e << nline;
+    else          cout << 0 << nline;
 }
 
 signed main() {
@@ -74,7 +83,7 @@ signed main() {
 
     fastio();
     int t = 1;   	
-    // cin >> t;
+    cin >> t;
     while(t--){     solve(); }
     return 0;
 }
