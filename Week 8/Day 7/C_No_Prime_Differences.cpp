@@ -16,7 +16,31 @@ void solve(){
         e = s + (m-1);
     }
 
-    
+    // if(!pr[grid[1][0] - grid[0][0]]){
+    //     for(int i = 0; i < n; i++){
+    //         for(int j = 0; j < m; j++){
+    //             cout << grid[i][j] << " ";
+    //         }cout << "\n";
+    //     }cout << "\n";
+    //     return;
+    // }
+    // else{
+        for(int i = 0; i < n; i++){
+            if(i % 2 != 0){
+                for(int j = 0; j < m; j++){
+                    cout << grid[i][j] << " ";
+                }cout << "\n";
+            }
+        }
+        for(int i = 0; i < n; i++){
+            if(i % 2 == 0){
+                for(int j = 0; j < m; j++){
+                    cout << grid[i][j] << " ";
+                }cout << "\n";
+            }
+        }
+        cout << "\n";
+    // }
 }
 
 signed main(){
