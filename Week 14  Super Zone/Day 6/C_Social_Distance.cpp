@@ -21,7 +21,6 @@ void solve(){
     }
     if(isM) ans++, i = 1, s[0] = '1';
     
-    // cout << "idx-> " << idx << "\n";
     int cnt = 0;
     for(i = idx; i < n; i++){
         if(cnt == 2 * k + 1){
@@ -43,7 +42,6 @@ void solve(){
     }
     if(isM) ans++, s[n-1] = '1';
 
-    // cout << s << "\n";
     cout << ans << "\n";
 
 }
