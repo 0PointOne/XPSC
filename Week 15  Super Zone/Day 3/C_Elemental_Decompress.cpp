@@ -39,27 +39,26 @@ void solve(){
         if(a[i] == 0) remA.push_back({v[i], i});
     }
     sort(remA.begin(), remA.end(), greater());
-
     int j = n;
     for(int i = 0; i < remA.size(); i++){
-        // cout << remA[i].first << " " << remA[i].second << "\n";
         while(fr[j] != 0) j--;
         a[remA[i].second] = j, fr[j]--;
         j--;
     }
+
     for(int i = 1; i <= n; i++) fr[i] = 0;
     for(int i = 0; i < n; i++){
         if(b[i] == 0) remB.push_back({v[i], i});
         else fr[v[i]]--;
     }
     sort(remB.begin(), remB.end(), greater());
-
     j = n;
     for(int i = 0; i < remB.size(); i++){
         while(fr[j] != 0) j--;
         b[remB[i].second] = j, fr[j]--;
         j--;
     }
+
     for(int i = 0; i < n; i++) cout << a[i] << " ";
     cout << "\n";
     for(int i = 0; i < n; i++) cout << b[i] << " ";

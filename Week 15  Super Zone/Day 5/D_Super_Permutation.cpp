@@ -7,7 +7,8 @@ void solve(){
 
     int n;  cin >> n;
     if(n & 1){
-        cout << -1 << "\n";
+        if(n == 1) cout << 1 << "\n";
+        else  cout << -1 << "\n";
         return;
     }
     int a = n, b = 1;
