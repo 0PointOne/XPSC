@@ -11,11 +11,9 @@ void solve(){
 
     int sum = 0;
     int med = n / 2;
-    // cout << med << " -> med\n";
 
     for(int i = (n*k)-med-1; i >= 0, k-- > 0; i -= (med+1)){
         sum += v[i];
-        // cout << v[i] << " ";
     }
 
     cout << sum << '\n';
